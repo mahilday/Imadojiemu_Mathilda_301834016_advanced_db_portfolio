@@ -1,2 +1,7 @@
-# Imadojiemu_Mathilda_301834016_advanced_db_portfolio
+# Advanced Database Systems Portfolio - MIT 8103
+
+**Student:** Mathilda Imadojiemu
+**Student ID:** 301834016
+
 Banking database setup portfolio
+
