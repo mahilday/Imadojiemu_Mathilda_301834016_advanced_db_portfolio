@@ -148,7 +148,7 @@ INSERT INTO
 VALUES
     ('TXN-N015', 'BILL_PAYMENT', 1000, 'NGN');
 
--- N16: deposit that names a biller - Accepted
+-- N16: deposit that names a biller - Rejected
 INSERT INTO
     transaction (reference, type, amount, currency, biller_id)
 VALUES

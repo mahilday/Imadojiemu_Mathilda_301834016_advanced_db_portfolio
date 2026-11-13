@@ -1,5 +1,5 @@
 -- Star bank database system
--- SQL database setup; Runs on command
+-- SQL database setup; Run in Query Tool against the star_bank database
 BEGIN;
 
 --1. member: member profile
