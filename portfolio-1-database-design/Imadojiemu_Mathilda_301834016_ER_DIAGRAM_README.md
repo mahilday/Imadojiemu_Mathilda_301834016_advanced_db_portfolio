@@ -19,7 +19,7 @@ The diagram below shows the relationships within all entities in this case study
 ```mermaid
 erDiagram
     member ||--o{ account : holds
-    transaction ||--|{ ledger_entry : "is recorded as"
+    transaction ||--o{ ledger_entry : "is recorded as"
     account ||--o{ ledger_entry : "is affected by"
     biller |o--o{ transaction : "is paid in"
     transaction |o--o| transaction : reverses
@@ -54,7 +54,7 @@ erDiagram
         varchar(15) type "DEPOSIT, WITHDRAWAL, TRANSFER or BILL_PAYMENT"
         numeric amount "Greater than zero"
         char(3) currency "NGN or KES"
-        varchar(10) status "PENDING, COMPLETED, FAILED or REVERSED"
+        varchar(15) status "PENDING, COMPLETED, FAILED or REVERSED"
         uuid biller_id FK "Only for bill payments"
         uuid reverse_transaction_id FK, UK "Only for reversals"
         timestamptz created_at
