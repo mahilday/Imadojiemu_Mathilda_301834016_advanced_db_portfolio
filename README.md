@@ -13,7 +13,7 @@ Banking database setup portfolio
 | 2   | [Query processing and optimization](portfolio-2-query-optimization/)  | SQL queries, execution plans, indexing, performance analysis                          | Complete    |
 | 3   | [Transactions and concurrency](portfolio-3-transactions-concurrency/) | Commit, rollback, isolation levels, concurrency control                               | Complete    |
 | 4   | [No-SQL and advanced data models](portfolio-4-no-sql/)                  | No-SQL model of the same case study, implementation, suitability                       | Complete    |
-| 5   | [Distributed and cloud database](portfolio-5-distributed-cloud/)      | Replication, sharding, availability, consistency                                      | Not started |
+| 5   | [Distributed and cloud database](portfolio-5-distributed-cloud/)      | Replication, sharding, availability, consistency                                      | Complete |
 
 ### Portfolio 1 files
 
@@ -47,6 +47,10 @@ Banking database setup portfolio
 - [Setup and run instructions](portfolio-4-no-sql/Imadojiemu_Mathilda_301834016_P4_SETUP.md)
 - [MongoDB script](portfolio-4-no-sql/Imadojiemu_Mathilda_301834016_Star_Bank_Mongo_Documents.js)
 - [Output](portfolio-4-no-sql/Imadojiemu_Mathilda_301834016_Output.txt)
+
+### Portfolio 5 file
+
+- [Readme](portfolio-5-distributed-cloud/Imadojiemu_Mathilda_301834016_P5_README.md)
 
 ## How to run
 
