@@ -7,13 +7,13 @@ Banking database setup portfolio
 
 ## Contents
 
-| # | Portfolio | Contents | Status |
-| --- | --- | --- | --- |
-| 1 | [Database design and modelling](portfolio-1-database-design/) | Case study, business rules, ER diagram, relational schema, constraints, normalisation | Complete |
-| 2 | [Query processing and optimization](portfolio-2-query-optimization/) | SQL queries, execution plans, indexing, performance analysis | Complete |
-| 3 | [Transactions and concurrency](portfolio-3-transactions-concurrency/) | Commit, rollback, isolation levels, concurrency control | Not started |
-| 4 | [NoSQL and advanced data models](portfolio-4-nosql/) | NoSQL model of the same case study, implementation, suitability | Not started |
-| 5 | [Distributed and cloud database](portfolio-5-distributed-cloud/) | Replication, sharding, availability, consistency | Not started |
+| #   | Portfolio                                                             | Contents                                                                              | Status      |
+| --- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------- |
+| 1   | [Database design and modelling](portfolio-1-database-design/)         | Case study, business rules, ER diagram, relational schema, constraints, normalisation | Complete    |
+| 2   | [Query processing and optimization](portfolio-2-query-optimization/)  | SQL queries, execution plans, indexing, performance analysis                          | Complete    |
+| 3   | [Transactions and concurrency](portfolio-3-transactions-concurrency/) | Commit, rollback, isolation levels, concurrency control                               | Not started |
+| 4   | [NoSQL and advanced data models](portfolio-4-nosql/)                  | NoSQL model of the same case study, implementation, suitability                       | Not started |
+| 5   | [Distributed and cloud database](portfolio-5-distributed-cloud/)      | Replication, sharding, availability, consistency                                      | Not started |
 
 ### Portfolio 1 files
 
@@ -32,6 +32,15 @@ Banking database setup portfolio
 - [Optimisation experiment](portfolio-2-query-optimization/Imadojiemu_Mathilda_301834016_Optimizations.sql)
 - [Screenshots](portfolio-2-query-optimization/screenshots/)
 
+### Portfolio 3 files
+
+- [Overview and explanation](portfolio-3-transaction-concurrency/Imadojiemu_Mathilda_301834016_P3_README.md)
+- [Commit](portfolio-3-transaction-concurrency/Imadojiemu_Mathilda_301834016_Commit_Part_1.sql)
+- [Rollback](portfolio-3-transaction-concurrency/Imadojiemu_Mathilda_301834016_Rollback.sql)
+- [Concurrency and isolation, Session A](portfolio-3-transaction-concurrency/Imadojiemu_Mathilda_301834016_Concurrency_Isolation_1.sql)
+- [Concurrency and isolation, Session B](portfolio-3-transaction-concurrency/Imadojiemu_Mathilda_301834016_Concurrency_Isolation_2.sql)
+- [Screenshots](portfolio-3-transaction-concurrency/screenshots/)
+
 ## How to run
 
 ### Portfolio 1
@@ -47,5 +56,8 @@ Banking database setup portfolio
 2. Run the business queries file one query at a time.
 3. Run the optimization file one block at a time, in order. It creates its own schema, `performance_p2_test`, and does not change the Portfolio 1 tables.
 
+### Portfolio 3
 
-
+1. Complete the Portfolio 1 steps first, and turn on auto-commit in the pgAdmin Query Tool.
+2. Run the commit file, then the rollback file, one block at a time.
+3. Open two Query Tool tabs. Run the Session A and Session B files in the order given in their comments: A1, B1, A2, B2.
