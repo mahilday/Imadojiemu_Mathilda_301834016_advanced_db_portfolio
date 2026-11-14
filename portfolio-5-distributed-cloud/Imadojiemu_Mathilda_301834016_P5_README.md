@@ -75,9 +75,9 @@ The same ideas apply to the relational database from Portfolios 1 to 3, which I 
 
 I ran a three-server MongoDB replica set in Docker, loaded the Star Bank data from Portfolio 4, and tested the points above.
 
-Files: [docker-compose.yml](docker-compose.yml), [Replica_Set_Demo](Imadojiemu_Mathilda_301834016_Replica_Set_Demo.sh), [Output](Imadojiemu_Mathilda_301834016_Output.txt)
+Files Needed for This Project: docker-compose.yml, Replica_Set_Demo, Output files
 
-| Step | What I did | Result |
+| Step | What should be done | Result |
 | --- | --- | --- |
 | 3 | Listed the role of each server | TO FILL: one PRIMARY, two SECONDARY |
 | 4 | Loaded the data once, counted transactions on each server | TO FILL: 10 on all three |
