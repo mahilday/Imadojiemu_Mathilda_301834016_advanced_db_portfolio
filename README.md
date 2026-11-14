@@ -10,7 +10,7 @@ Banking database setup portfolio
 | # | Portfolio | Contents | Status |
 | --- | --- | --- | --- |
 | 1 | [Database design and modelling](portfolio-1-database-design/) | Case study, business rules, ER diagram, relational schema, constraints, normalisation | Complete |
-| 2 | [Query processing and optimisation](portfolio-2-query-optimisation/) | SQL queries, execution plans, indexing, performance analysis | In progress |
+| 2 | [Query processing and optimization](portfolio-2-query-optimization/) | SQL queries, execution plans, indexing, performance analysis | Complete |
 | 3 | [Transactions and concurrency](portfolio-3-transactions-concurrency/) | Commit, rollback, isolation levels, concurrency control | Not started |
 | 4 | [NoSQL and advanced data models](portfolio-4-nosql/) | NoSQL model of the same case study, implementation, suitability | Not started |
 | 5 | [Distributed and cloud database](portfolio-5-distributed-cloud/) | Replication, sharding, availability, consistency | Not started |
