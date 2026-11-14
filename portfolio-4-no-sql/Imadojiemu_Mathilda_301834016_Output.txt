@@ -1,0 +1,188 @@
+--- Counts ---
+members: 4, transactions: 10
+--- Q1: a member with all accounts, in one read and no join ---
+{
+  full_name: 'Adaeze Okafor',
+  email: 'adaeze.okafor@mail.example',
+  phone: '+2348030000001',
+  country: 'NG',
+  accounts: [
+    {
+      account_number: '0100000001',
+      currency: 'NGN',
+      balance: Decimal128('35000.00'),
+      status: 'ACTIVE'
+    },
+    {
+      account_number: '0100000002',
+      currency: 'NGN',
+      balance: Decimal128('0.00'),
+      status: 'ACTIVE'
+    }
+  ]
+}
+--- Q2: statement for account 0100000001, newest first ---
+{
+  reference: 'TXN-0009',
+  type: 'TRANSFER',
+  amount: Decimal128('2000.00'),
+  status: 'COMPLETED',
+  created_at: ISODate('2026-11-07T15:30:00.000Z')
+}
+{
+  reference: 'TXN-0008',
+  type: 'TRANSFER',
+  amount: Decimal128('2000.00'),
+  status: 'REVERSED',
+  created_at: ISODate('2026-11-07T14:00:00.000Z')
+}
+{
+  reference: 'TXN-0005',
+  type: 'BILL_PAYMENT',
+  amount: Decimal128('5000.00'),
+  status: 'COMPLETED',
+  created_at: ISODate('2026-11-04T16:45:00.000Z')
+}
+{
+  reference: 'TXN-0004',
+  type: 'TRANSFER',
+  amount: Decimal128('10000.00'),
+  status: 'COMPLETED',
+  created_at: ISODate('2026-11-03T12:00:00.000Z')
+}
+{
+  reference: 'TXN-0001',
+  type: 'DEPOSIT',
+  amount: Decimal128('50000.00'),
+  status: 'COMPLETED',
+  created_at: ISODate('2026-11-01T09:00:00.000Z')
+}
+--- Q3: failed and pending transactions ---
+{
+  reference: 'TXN-0010',
+  type: 'WITHDRAWAL',
+  amount: Decimal128('90000.00'),
+  status: 'FAILED',
+  details: {
+    failure_reason: 'INSUFFICIENT_FUNDS'
+  }
+}
+--- Q4: completed transactions by type and currency (aggregation pipeline) ---
+{
+  _id: {
+    type: 'DEPOSIT',
+    currency: 'KES'
+  },
+  transactions: 1,
+  total_amount: Decimal128('15000.00')
+}
+{
+  _id: {
+    type: 'TRANSFER',
+    currency: 'KES'
+  },
+  transactions: 1,
+  total_amount: Decimal128('4000.00')
+}
+{
+  _id: {
+    type: 'BILL_PAYMENT',
+    currency: 'NGN'
+  },
+  transactions: 1,
+  total_amount: Decimal128('5000.00')
+}
+{
+  _id: {
+    type: 'DEPOSIT',
+    currency: 'NGN'
+  },
+  transactions: 2,
+  total_amount: Decimal128('70000.00')
+}
+{
+  _id: {
+    type: 'TRANSFER',
+    currency: 'NGN'
+  },
+  transactions: 2,
+  total_amount: Decimal128('12000.00')
+}
+{
+  _id: {
+    type: 'WITHDRAWAL',
+    currency: 'NGN'
+  },
+  transactions: 1,
+  total_amount: Decimal128('3000.00')
+}
+--- Q5: ledger balance per account, from the embedded entries ---
+{
+  _id: '0100000001',
+  ledger_balance: Decimal128('35000.00')
+}
+{
+  _id: '0100000002',
+  ledger_balance: Decimal128('0.00')
+}
+{
+  _id: '0100000003',
+  ledger_balance: Decimal128('27000.00')
+}
+{
+  _id: '0200000001',
+  ledger_balance: Decimal128('11000.00')
+}
+{
+  _id: '0200000002',
+  ledger_balance: Decimal128('4000.00')
+}
+--- Q6: bill payments, using a field that only bill payments have ---
+{
+  reference: 'TXN-0005',
+  amount: Decimal128('5000.00'),
+  biller: {
+    name: 'Lagos Power Distribution'
+  },
+  details: {
+    meter_number: '04172839465'
+  }
+}
+--- V1: member in a country outside NG and KE (expect rejection) ---
+Rejected: Document failed validation
+--- V2: duplicate member email (expect rejection) ---
+Rejected: E11000 duplicate key error collection: star_bank.members index: email_1 dup key: { email: "adaeze.okafor@mail.example" }
+--- V3: transaction with an amount of zero (expect rejection) ---
+Rejected: Document failed validation
+--- Query plan for the statement query ---
+{
+  stage: 'FETCH',
+  inputStage: {
+    stage: 'IXSCAN',
+    keyPattern: {
+      'entries.account_number': 1,
+      created_at: -1
+    },
+    indexName: 'entries.account_number_1_created_at_-1',
+    isMultiKey: true,
+    multiKeyPaths: {
+      'entries.account_number': [
+        'entries'
+      ],
+      created_at: []
+    },
+    isUnique: false,
+    isSparse: false,
+    isPartial: false,
+    indexVersion: 2,
+    direction: 'forward',
+    indexBounds: {
+      'entries.account_number': [
+        '["0100000001", "0100000001"]'
+      ],
+      created_at: [
+        '[MaxKey, MinKey]'
+      ]
+    }
+  }
+}
