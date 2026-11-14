@@ -1,19 +1,19 @@
-# Portfolio 2: Query Processing and Optimisation
+# Portfolio 2: Query Processing and Optimization
 
-This portfolio uses the Star Bank database from Portfolio 1. It has two parts: business queries run against the real tables, and one optimisation experiment run against a larger test table.
+This portfolio uses the Star Bank database from Portfolio 1. It has two parts: business queries run against the real tables, and one optimization experiment run against a larger test table.
 
 ## How this was implemented and tested
 
 - **Database:** PostgreSQL, accessed through the pgAdmin Query Tool, database `star_bank`.
 - **Business queries:** run against the Portfolio 1 tables and sample data. Each result was checked against the sample data by hand.
-- **Optimisation experiment:** run against a separate test table of 200,000 generated rows in its own schema, `performance_p2_test`, so the Portfolio 1 tables are not changed.
+- **Optimization experiment:** run against a separate test table of 200,000 generated rows in its own schema, `performance_p2_test`, so the Portfolio 1 tables are not changed.
 - **Method:** the same query was measured with `EXPLAIN (ANALYZE, BUFFERS)` before and after adding one index. Each measurement was run four times; the first run was ignored and the next three recorded as evidence.
 
 ### Run order
 
 1. Portfolio 1 schema and sample data (already in place).
 2. [Queries](Imadojiemu_Mathilda_301834016_Queries.sql): run each query on its own.
-3. [Optimisation](Imadojiemu_Mathilda_301834016_Optimizations.sql): run one block at a time, in order.
+3. [Optimization](Imadojiemu_Mathilda_301834016_Optimizations.sql): run one block at a time, in order.
 
 ## Part 1: Business queries
 
@@ -110,7 +110,7 @@ Note: The star bank transaction table remains unchanged
 | Execution plans | [Before](screenshots/Imadojiemu_Mathilda_301834016_Before_Index_Add.png), [After](screenshots/Imadojiemu_Mathilda_301834016_After_Index.png) |
 | SQL queries | [Queries](Imadojiemu_Mathilda_301834016_Queries.sql) |
 | Query results | Screenshots Q1 to Q7, listed above |
-| Indexing / optimisation evidence | [Optimisation](Imadojiemu_Mathilda_301834016_Optimization.sql) |
+| Indexing / optimization evidence | [Optimization](Imadojiemu_Mathilda_301834016_Optimization.sql) |
 | Performance analysis | [Analysis](#performance-analysis) |
 
 ### Screenshots
